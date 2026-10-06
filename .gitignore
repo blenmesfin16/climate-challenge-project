@@ -1,2 +1,11 @@
-# Virtual Environment
+Set-Content -Path .gitignore -Value "# Virtual Environment
 venv/
+.venv/
+
+# Data and CSV files
+data/
+*.csv
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*"
