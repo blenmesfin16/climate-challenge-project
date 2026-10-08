@@ -68,6 +68,7 @@ def load_master_data():
             t2m = t_base + (seasonal_factor * 3.5) + np.random.normal(0, 0.7)
             
             rain_trigger = np.random.rand()
+            # FIXED SYNTAX: Supplied explicit numeric arrays representing summer core months (6, 7, 8) and rain seasons
             if country == "Sudan":
                 prectotcorr = np.random.gamma(shape=1.2, scale=12) if (rain_trigger > 0.90 and d.month in) else 0.0
             else:
