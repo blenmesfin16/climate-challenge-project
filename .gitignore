@@ -1,7 +1,6 @@
 Set-Content -Path .gitignore -Value "# Virtual Environment
 venv/
 .venv/
-
 # Data and CSV files
 data/
 *.csv
@@ -9,3 +8,9 @@ data/
 # Jupyter Notebooks checkpoints
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*"
+
+<<<<<<< HEAD (Current Change - what is on main)
+data/
+=======
+data/
+>>>>>>> exploratory_data_analysis (Incoming Change)
