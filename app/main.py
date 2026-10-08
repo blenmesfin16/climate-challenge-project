@@ -67,12 +67,14 @@ def load_master_data():
             seasonal_factor = np.sin(d.month * (np.pi / 6))
             t2m = t_base + (seasonal_factor * 3.5) + np.random.normal(0, 0.7)
             
+            # Simplified Precipitation logic to avoid syntax truncation bugs
             rain_trigger = np.random.rand()
-            # FIXED SYNTAX: Supplied explicit numeric arrays representing summer core months (6, 7, 8) and rain seasons
+            is_rainy_season = d.month in [5, 6, 7, 8, 9]
+            
             if country == "Sudan":
-                prectotcorr = np.random.gamma(shape=1.2, scale=12) if (rain_trigger > 0.90 and d.month in) else 0.0
+                prectotcorr = np.random.gamma(shape=1.2, scale=12) if (rain_trigger > 0.90 and is_rainy_season) else 0.0
             else:
-                prectotcorr = np.random.gamma(shape=2.0, scale=8) if (rain_trigger > 0.65 and d.month in) else 0.0
+                prectotcorr = np.random.gamma(shape=2.0, scale=8) if (rain_trigger > 0.65 and is_rainy_season) else 0.0
                 
             rh2m = np.clip(h_base - (seasonal_factor * 15) + (prectotcorr * 0.5) + np.random.normal(0, 3), 5.0, 100.0)
             
